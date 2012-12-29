@@ -50,7 +50,9 @@ class Kohana_Log_Loggly extends Log_Writer {
 			}
 		}
 		
-		$request = Request::factory( 'https://logs.loggly.com/inputs/' . $this->_inputKey )->headers( 'content-type', 'test/plain' )->body( $logString );
+		$request = Request::factory( 'https://logs.loggly.com/inputs/' . $this->_inputKey )
+			->headers( array('content-type' => 'text/plain') )
+			->body( $logString );
 		$response = $request->execute();
 	}
 }
