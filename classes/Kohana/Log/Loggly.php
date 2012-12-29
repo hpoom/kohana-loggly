@@ -21,7 +21,7 @@ class Kohana_Log_Loggly extends Log_Writer {
 	 */
 	public function __construct( $inputKey ) {
 		// Check key is valid and store it for use in the write method
-		if ( !is_string( $inputKey ) || Valid::exact_length( $inputKey, 36 ) ) {
+		if ( !is_string( $inputKey ) || !Valid::exact_length( $inputKey, 36 ) ) {
 			throw new Kohana_Exception( 'Loggly key :key must be a valid 36 character string',
 				array( ':key' => $inputKey ) );
 		}
